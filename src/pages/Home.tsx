@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import PageHeader from "../components/header/PageHeader";
 import ProductCard from "../components/shop/ProductCard";
 import { products } from "../data/Products";
 
@@ -8,7 +7,8 @@ const carouselSlides = [
   {
     title: "MEN'S CLOTHES",
     subtitle: "NEW COLLECTIONS 2019",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor!",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor!",
     cta: "SHOP NOW",
     bg: "bg-white",
     image: "/images/mens_banner.png", // Placeholder - in real app would use actual image
@@ -24,7 +24,6 @@ const carouselSlides = [
     image: "/images/womens_banner.png",
     align: "right",
     textColor: "text-black",
-
   },
   {
     title: "Fashion Accessories",
@@ -44,7 +43,7 @@ const categoryHighlights = [
   { name: "FASHION'S", info: "ACCESSORIES", discount: "UP TO 60% OFF" },
 ];
 
-// Mock banner images using placeholder if not available. 
+// Mock banner images using placeholder if not available.
 // In a real implementation I would upload the images from your attachments to public/images/
 // For now I'll style it to look like the layout even without the specific background images if they are missing,
 // but relying on text placement.
@@ -80,11 +79,21 @@ const Home = () => {
             ${slide.bg}`}
           >
             {/* Slide Content */}
-            <div className={`max-w-7xl mx-auto w-full px-4 flex ${slide.align === 'right' ? 'justify-end' : 'justify-center'} items-center h-full`}>
-              <div className={`text-center ${slide.align === 'right' ? 'text-right md:w-1/2' : 'max-w-2xl'} ${slide.textColor}`}>
-                <p className="text-blue-500 font-semibold tracking-wider uppercase mb-2">{slide.subtitle}</p>
-                <h2 className="text-5xl md:text-6xl font-bold mb-4 font-serif">{slide.title}</h2>
-                <p className="text-gray-600 mb-8 text-lg">{slide.description}</p>
+            <div
+              className={`max-w-7xl mx-auto w-full px-4 flex ${slide.align === "right" ? "justify-end" : "justify-center"} items-center h-full`}
+            >
+              <div
+                className={`text-center ${slide.align === "right" ? "text-right md:w-1/2" : "max-w-2xl"} ${slide.textColor}`}
+              >
+                <p className="text-blue-500 font-semibold tracking-wider uppercase mb-2">
+                  {slide.subtitle}
+                </p>
+                <h2 className="text-5xl md:text-6xl font-bold mb-4 font-serif">
+                  {slide.title}
+                </h2>
+                <p className="text-gray-600 mb-8 text-lg">
+                  {slide.description}
+                </p>
                 <button className="border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white px-8 py-3 uppercase text-sm font-semibold transition tracking-wider">
                   {slide.cta}
                 </button>
@@ -96,13 +105,21 @@ const Home = () => {
         {/* Navigation Arrows */}
         <button
           className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md flex items-center justify-center text-gray-500 hover:bg-blue-600 hover:text-white transition opacity-0 group-hover:opacity-100"
-          onClick={() => setCurrentSlide(prev => (prev === 0 ? carouselSlides.length - 1 : prev - 1))}
+          onClick={() =>
+            setCurrentSlide((prev) =>
+              prev === 0 ? carouselSlides.length - 1 : prev - 1,
+            )
+          }
         >
           <i className="fa-solid fa-angle-left"></i>
         </button>
         <button
           className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md flex items-center justify-center text-gray-500 hover:bg-blue-600 hover:text-white transition opacity-0 group-hover:opacity-100"
-          onClick={() => setCurrentSlide(prev => (prev === carouselSlides.length - 1 ? 0 : prev + 1))}
+          onClick={() =>
+            setCurrentSlide((prev) =>
+              prev === carouselSlides.length - 1 ? 0 : prev + 1,
+            )
+          }
         >
           <i className="fa-solid fa-angle-right"></i>
         </button>
@@ -116,9 +133,7 @@ const Home = () => {
             className="flex items-center bg-gray-50 p-6 group cursor-pointer hover:shadow-md transition"
           >
             {/* Image Placeholder */}
-            <div className="w-1/2">
-              {/* Placeholder for category image */}
-            </div>
+            <div className="w-1/2">{/* Placeholder for category image */}</div>
 
             {/* Text Content */}
             <div className="w-1/2">
@@ -126,7 +141,9 @@ const Home = () => {
                 <span className="block">{cat.name}</span>
                 <span className="block">{cat.info}</span>
               </h3>
-              <p className="text-blue-500 text-xs font-bold uppercase mb-4">{cat.discount}</p>
+              <p className="text-blue-500 text-xs font-bold uppercase mb-4">
+                {cat.discount}
+              </p>
               <button className="bg-blue-600 text-white px-4 py-2 text-xs font-bold uppercase hover:bg-blue-700 transition">
                 Shop Now
               </button>
