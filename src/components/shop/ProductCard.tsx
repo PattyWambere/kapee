@@ -1,4 +1,5 @@
 import { FaRegHeart, FaHeart, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useWishlist } from "../../context/WishlistContext";
 
 const ProductCard = ({ product }: any) => {
@@ -17,11 +18,13 @@ const ProductCard = ({ product }: any) => {
         )}
 
         {/* Image */}
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <Link to={`/shop/${product.id}`}>
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </Link>
 
         {/* Wishlist Button */}
         <button
@@ -39,7 +42,9 @@ const ProductCard = ({ product }: any) => {
       {/* Content */}
       <div className="space-y-1">
         <p className="text-xs text-gray-400 uppercase">{product.category}</p>
-        <h3 className="font-semibold">{product.title}</h3>
+        <Link to={`/shop/${product.id}`}>
+          <h3 className="font-semibold">{product.title}</h3>
+        </Link>
 
         {/* Rating */}
         <div className="flex text-yellow-400 text-xs">

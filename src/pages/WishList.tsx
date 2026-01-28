@@ -1,49 +1,40 @@
-
 import PageHeader from "../components/header/PageHeader";
 import { useWishlist } from "../context/WishlistContext";
+import ProductCard from "../components/shop/ProductCard";
+import { Link } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 
 const WishList = () => {
-  const { wishlist, toggleWishlist } = useWishlist();
+  const { wishlist } = useWishlist();
 
   return (
-    <>
-      <PageHeader title="WishList" />
+    <div className="bg-white min-h-screen pb-20">
+      <PageHeader title="My Wishlist" />
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="border border-gray-200 rounded-md overflow-hidden">
-          {/* TABLE HEADER */}
-          <div className="grid grid-cols-4 bg-gray-100 text-sm font-medium text-gray-700 px-4 py-3">
-            <span>Product</span>
-            <span>Price</span>
-            <span>Status</span>
-            <span>Action</span>
-          </div>
-
-          {wishlist.length === 0 ? (
-            <div className="px-4 py-12 text-center text-gray-500 text-sm">
-              No products added to the wishlist
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
+        {wishlist.length === 0 ? (
+          <div className="text-center py-20 bg-gray-50 rounded-[40px] border-2 border-dashed border-gray-100">
+            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-gray-200 mx-auto mb-8 shadow-sm">
+              <FaHeart size={32} />
             </div>
-          ) : (
-            wishlist.map((product) => (
-              <div
-                key={product.id}
-                className="grid grid-cols-4 items-center px-4 py-4 border-t text-sm"
-              >
-                <span className="font-medium">{product.title}</span>
-                <span>${product.price.toFixed(2)}</span>
-                <span className="text-green-600">In Stock</span>
-                <button
-                  onClick={() => toggleWishlist(product)}
-                  className="text-red-500 hover:underline"
-                >
-                  Remove
-                </button>
-              </div>
-            ))
-          )}
-        </div>
+            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-4">Your wishlist is empty</h2>
+            <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px] mb-12">Save your favorite cakes and treats here!</p>
+            <Link
+              to="/shop"
+              className="inline-block bg-black text-white px-12 py-5 rounded-2xl font-black uppercase text-xs tracking-[0.2em] hover:bg-orange-500 transition-all duration-500 shadow-2xl shadow-black/10"
+            >
+              Start Shopping
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-12">
+            {wishlist.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const TopBar = () => {
   return (
     <div className="bg-blue-600 text-white text-xs">
@@ -17,17 +19,17 @@ const TopBar = () => {
         <div className="flex items-center divide-x divide-blue-400">
           <span className="px-3 uppercase">Welcome to our store!</span>
 
-          <span className="px-3 flex items-center gap-1 cursor-pointer">
+          <Link to="/blog" className="px-3 flex items-center gap-1 cursor-pointer hover:text-orange-400 transition">
             <i className="fa-regular fa-file-lines"></i> Blog
-          </span>
+          </Link>
 
           <span className="px-3 flex items-center gap-1 cursor-pointer">
             <i className="fa-regular fa-circle-question"></i> FAQ
           </span>
 
-          <span className="px-3 flex items-center gap-1 cursor-pointer">
+          <Link to="/contact" className="px-3 flex items-center gap-1 cursor-pointer hover:text-orange-400 transition">
             <i className="fa-regular fa-envelope"></i> Contact Us
-          </span>
+          </Link>
         </div>
       </div>
     </div>
