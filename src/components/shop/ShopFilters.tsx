@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaChevronDown, FaChevronUp, FaStar } from "react-icons/fa";
+import { FaChevronDown, FaStar } from "react-icons/fa";
 import { categories } from "../../data/Products";
 import type { Filters } from "../../pages/Shop";
 
@@ -139,8 +139,8 @@ const ShopFilters = ({
               key={size}
               onClick={() => setFilters({ ...filters, size })}
               className={`w-10 h-10 rounded-xl text-[10px] font-black transition-all duration-300 border-2 ${filters.size === size
-                  ? "bg-black text-white border-black shadow-lg shadow-black/20"
-                  : "bg-white text-gray-400 border-gray-100 hover:border-gray-900 hover:text-gray-900"
+                ? "bg-black text-white border-black shadow-lg shadow-black/20"
+                : "bg-white text-gray-400 border-gray-100 hover:border-gray-900 hover:text-gray-900"
                 }`}
             >
               {size}

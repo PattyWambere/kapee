@@ -15,8 +15,7 @@ const ProductGrid = ({ filters }: { filters: Filters }) => {
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();
       const matchesSearch =
-        product.name.toLowerCase().includes(searchLower) ||
-        product.description?.toLowerCase().includes(searchLower) ||
+        product.title.toLowerCase().includes(searchLower) ||
         product.category.toLowerCase().includes(searchLower);
 
       if (!matchesSearch) return false;

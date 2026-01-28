@@ -5,15 +5,12 @@ import {
   FaCcAmex,
   FaMapMarkerAlt,
   FaPhoneAlt,
-  FaEnvelope,
-  FaClock,
   FaFacebookF,
   FaInstagram,
   FaTwitter,
   FaYoutube,
   FaPaperPlane
 } from "react-icons/fa";
-import { SiAirtel } from "react-icons/si";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
